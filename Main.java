@@ -1,9 +1,6 @@
 package JanKozak7;
 
 import java.io.*;
-import java.sql.SQLOutput;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Main {
 
@@ -41,7 +38,7 @@ public class Main {
     }
 
 
-    public static void SaveOrder(Order o, String FileName) {
+    public static void SaveOrder(Order o, String FileName) {     // next function will be saving and reading orders with position to/from a file
         try {
             FileOutputStream FileOS = new FileOutputStream(FileName);
             ObjectOutputStream ObjectOS = new ObjectOutputStream(FileOS);

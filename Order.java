@@ -5,35 +5,17 @@ import java.util.ArrayList;
 
 class Order implements Serializable {
 
-    //private Position[] table = new Position[2];
     private ArrayList<Position> atable = new ArrayList<Position>();
-    //private int noOfPositions;
-    // private int maxNoOfPos;
-    //private int noInTable;
     protected String orderName;
 
     public Order(String orderName) {
         this.orderName = orderName;
-       // maxNoOfPos = 10;
     }
 
- /*   public Order (int maxNoOfPos) {
-
-    }*/
-
-    public void addPosition (Position positionToAdd/*, int noInTable*/) {
-/*        if (table[noInTable] != null) {
-            if ((table[noInTable].productName).equals(positionToAdd.productName)) {
-                table[noInTable].quantity += positionToAdd.quantity;
-                System.out.println("Position has been updated. Quantity is bigger on " + positionToAdd.quantity);
-            }
-        }
-            else {
-                table[noInTable] = positionToAdd;*/
-                atable.add(positionToAdd);
-                System.out.println("Position " + atable.get(atable.indexOf(positionToAdd)).productName + " has been added");
-            }
-//    }
+    public void addPosition (Position positionToAdd) {
+        atable.add(positionToAdd);
+        System.out.println("Position " + atable.get(atable.indexOf(positionToAdd)).productName + " has been added");
+    }
 
     double countValueOfOrder() {
         double SummaryOfValue = 0;
@@ -59,7 +41,7 @@ class Order implements Serializable {
     }
 
     public void editPosition(int id, String name, int quantity_c, double price_c) {
-        /*atable.g = */Position editPos1 = new Position(id, name, quantity_c, price_c);
+        Position editPos1 = new Position(id, name, quantity_c, price_c);
     }
 
 }

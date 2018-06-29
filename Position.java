@@ -2,11 +2,8 @@ package JanKozak7;
 
 import java.io.*;
 import java.util.Formatter;
-import java.util.ArrayList;
 
 class Position implements Serializable {
-
-//    System.out.println("Created constructior with id number " + id);
 
     protected int id;
     protected String productName;
@@ -37,10 +34,6 @@ class Position implements Serializable {
             String formattedString = formatter.toString();
             System.out.println(formattedString);
     }
-   /* public double getValue() {
-        double OrderValue = price * quantity;
-        return OrderValue;
-    }*/
 
     public double discount() {
         if (quantity < 5) {
