@@ -39,7 +39,6 @@ public class menu {
     private ArrayList<Position> listPositions = new ArrayList<Position>();
     private ArrayList<Order> listOrders = new ArrayList<Order>();
     private ArrayList<Position> arrayInner = new ArrayList<Position>();
-    private int ac = 0;
 
     menu() {
         System.out.println("This is a program where you can create orders with positions, their quantity and unit price, as also save and read orders from *.txt files\nTo exit a program press 0");
@@ -92,15 +91,12 @@ public class menu {
                     for (int i = 0; i < listOrders.size(); i++)
                         System.out.println(i + ". " + listOrders.get(i).orderName);
                     choice22o = scan1.nextInt();
-                    //System.out.println("Enter a number you want to put a position in a table");
-                    //choice22n = scan1.nextInt();
                     listOrders.get(choice22o).addPosition(listPositions.get(choice22p));
                     arrayInner.add(listPositions.get(choice22p));
                     //listPosInOrd.add(arrayInner);
                     System.out.println("A position " + choice22p + " has been added to an order " + choice22o);
                 }
                 if (choice2 == 3) {
-                    /*try {*/
                         System.out.println("Enter a number of an order to choose a position to edit from a list below");
                         for (int i = 0; i < listOrders.size(); i++)
                             System.out.println(i + ". " + listOrders.get(i).orderName);
@@ -126,29 +122,19 @@ public class menu {
                         if (choice23pp == 1) {
                             System.out.println("Enter a new quantity");
                             choice23ppq = scan1.nextInt();
-                            //listOrders.get(choice23o).editPosition(tempPos.id, tempPos.productName, choice23ppq, tempPos.price);
-                            //Position editPos = new Position;
-                            //listOrders.get(choice23o).addPosition(editPos);
-                            //listOrders.get(choice23o).deletePosition(tempPos);
+                            Position tempQ = new Position(tempPos.id, tempPos.productName, choice23ppq, tempPos.price);
+                            listPositions.remove(tempPos);
+                            listPositions.add(tempQ);
+                            listOrders.get(choice23o).addPosition(tempQ);
                         }
                         if (choice23pp == 2) {
                             System.out.println("Enter a price using comma e.g. 5,8");
                             choice23ppp = scan1.nextDouble();
-                            listOrders.get(choice23o).editPosition(tempPos.id, tempPos.productName, tempPos.quantity, choice23ppq);
+                            Position tempP = new Position(tempPos.id, tempPos.productName, tempPos.quantity, choice23ppp);
+                            listPositions.remove(tempPos);
+                            listPositions.add(tempP);
+                            listOrders.get(choice23o).addPosition(tempP);
                         }
-                    /*}
-                    catch(NullPointerException npe) {
-                        npe.printStackTrace();
-                    }*/
-                      /*  System.out.println("Enter a number id");
-                        choice23id = scan1.nextInt();
-                        System.out.println("Enter a name");
-
-                        System.out.println("Enter a number of a quantity");
-                        choice23q = scan1.nextInt();
-                        System.out.println("Enter a price with comma e.g. 2,5");
-                        choice23p = scan1.nextDouble();
-                        //listOrders.get(choice23o).editPosition(choice23np, );*/
                 }
                 if (choice2 == 4) {
                     System.out.println("Enter a number of an order to choose a position to delete from a list below");
@@ -162,8 +148,6 @@ public class menu {
                     }
                     System.out.println("Enter a name of position you want to delete from a list below");
                     listOrders.get(choice24o).DisplayOrder();
-                   /* for (int i = 0; i < listOrders.size(); i++)
-                        System.out.println(i + ". " + listOrders.get(i).orderName);*/
                     choice24np = scan1.nextInt();
                     listOrders.get(choice24o).deletePosition(choice24np);
                     System.out.println("Position has been deleted");
