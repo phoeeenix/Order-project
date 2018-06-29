@@ -39,7 +39,6 @@ public class menu {
     private ArrayList<Position> listPositions = new ArrayList<Position>();
     private ArrayList<Order> listOrders = new ArrayList<Order>();
     private ArrayList<Position> arrayInner = new ArrayList<Position>();
-    private int ac = 0;
 
     menu() {
         System.out.println("This is a program where you can create orders with positions, their quantity and unit price, as also save and read orders from *.txt files\nTo exit a program press 0");
@@ -101,6 +100,7 @@ public class menu {
                 }
                 if (choice2 == 3) {
                     /*try {*/
+                    int c;
                         System.out.println("Enter a number of an order to choose a position to edit from a list below");
                         for (int i = 0; i < listOrders.size(); i++)
                             System.out.println(i + ". " + listOrders.get(i).orderName);
@@ -126,6 +126,10 @@ public class menu {
                         if (choice23pp == 1) {
                             System.out.println("Enter a new quantity");
                             choice23ppq = scan1.nextInt();
+                            Position tempQ = new Position(tempPos.id, tempPos.productName, choice23ppq, tempPos.price);
+                            listPositions.remove(tempPos);
+                            listPositions.add(tempQ);
+                            listOrders.get(choice23o).addPosition(tempQ);
                             //listOrders.get(choice23o).editPosition(tempPos.id, tempPos.productName, choice23ppq, tempPos.price);
                             //Position editPos = new Position;
                             //listOrders.get(choice23o).addPosition(editPos);
